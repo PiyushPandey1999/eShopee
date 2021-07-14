@@ -90,6 +90,7 @@
         android:layout_height="85dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
+        android:onClick="openFirstActivity"
         android:background="@color/cardview_shadow_end_color"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
         app:layout_constraintTop_toTopOf="@+id/imageButton3"

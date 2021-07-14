@@ -167,6 +167,9 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="65dp"
         android:text="SIGN OUT"
+        android:background="@drawable/round_button"
+        app:backgroundTint="@color/black"
+        android:onClick="openFirstActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -176,7 +179,10 @@
         android:layout_height="65dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="65dp"
+        android:background="@drawable/round_button"
+        app:backgroundTint="@color/black"
         android:text="CHANGE PASSWORD"
+        android:onClick="openChangePassword"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTextPersonName8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
