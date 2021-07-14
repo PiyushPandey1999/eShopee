@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EShopee">
+        <activity android:name=".PostAd"></activity>
         <activity android:name=".Profile" />
         <activity android:name=".HomePage" />
         <activity android:name=".ResetActivity" />

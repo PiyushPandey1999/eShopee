@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
-    ImageButton profile;
+    ImageButton postAd, profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +37,13 @@ public class HomePage extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pro);
         lv.setAdapter(arrayAdapter);
 
-        /*postAd = (ImageButton) findViewById(R.id.imageButton2);
+        postAd = (ImageButton) findViewById(R.id.imageButton2);
         postAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openPostAd();
             }
-        });*/
+        });
 
         profile = (ImageButton) findViewById(R.id.imageButton3);
         profile.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +54,10 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
-    /*public void openPostAd() {
+    public void openPostAd() {
         Intent intent = new Intent(this, PostAd.class);
         startActivity(intent);
-    }*/
+    }
 
     public void openProfile() {
         Intent intent = new Intent(this, Profile.class);
