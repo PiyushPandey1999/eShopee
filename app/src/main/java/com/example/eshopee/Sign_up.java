@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Sign_up extends AppCompatActivity {
     int passwordsMatch, allFieldsFilled, enteredDetails;
-    String userNameHolder, fullNameHolder, numberHolder, passwordHolder1, passwordHolder2, addressHolder, sqLiteDatabaseQueryHolder;
+    String userNameHolder, fullNameHolder, numberHolder, passwordHolder1, passwordHolder2, addressHolder;
     EditText edfn, edun, edpw1, edpw2, edpn, edadd;
     Button register;
     Boolean checkData;
@@ -25,7 +25,7 @@ public class Sign_up extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up);
-
+ 
         //video background
         VideoView loginVideo = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);

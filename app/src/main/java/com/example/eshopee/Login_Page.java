@@ -53,8 +53,10 @@ public class Login_Page extends AppCompatActivity {
             public void onClick(View v) {
                 userHolder = edUser.getText().toString();
                 passwordHolder = edPassword.getText().toString();
-                if(myDB.checkLoginDetails(userHolder, passwordHolder) == true)
+                if(myDB.checkLoginDetails(userHolder, passwordHolder) == true) {
                     Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                    openHomePage();
+                }
                 else
                     Toast.makeText(getApplicationContext(), "The username and/or password you specified are incorrect", Toast.LENGTH_SHORT).show();
             }
@@ -71,6 +73,11 @@ public class Login_Page extends AppCompatActivity {
 
     public void openFirstActivity() {
         Intent intent = new Intent(this, Welcome.class);
+        startActivity(intent);
+    }
+
+    public void openHomePage() {
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
 
