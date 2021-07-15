@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
     ImageButton postAd, profile;
+    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,20 @@ public class HomePage extends AppCompatActivity {
                 openProfile();
             }
         });
+    }
+
+    //press back twice to exit
+    @Override
+    public void onBackPressed() {
+        if(pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finishAffinity();
+            finish();
+        }
+        else {
+            Toast.makeText(getBaseContext(), "Press back again to EXIT", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 
     public void openPostAd() {

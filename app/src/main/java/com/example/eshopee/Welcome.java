@@ -6,11 +6,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Welcome extends AppCompatActivity {
+    private long pressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +54,19 @@ public class Welcome extends AppCompatActivity {
     public void openLogin() {
         Intent intent = new Intent(this, Login_Page.class);
         startActivity(intent);
+    }
+
+    //press back twice to exit
+    @Override
+    public void onBackPressed() {
+        if(pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finishAffinity();
+            finish();
+        }
+        else {
+            Toast.makeText(getBaseContext(), "Press back again to EXIT", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }
