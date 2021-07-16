@@ -16,20 +16,13 @@ public class Login_Page extends AppCompatActivity {
     private VideoView loginVideo;
     EditText edUser, edPassword;
     String userHolder, passwordHolder;
+    String[] details = new String[2];
     DBHelper myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login__page);
-
-        /*changing the back button to go first activity
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                openFirstActivity();
-            }
-        };*/
 
         //video background
         VideoView loginVideo = (VideoView) findViewById(R.id.videoView);
@@ -55,25 +48,14 @@ public class Login_Page extends AppCompatActivity {
                 passwordHolder = edPassword.getText().toString();
                 if(myDB.checkLoginDetails(userHolder, passwordHolder) == true) {
                     Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                    String[] details = {userHolder, passwordHolder};
+                    User.getInstance().setDetails(details);
                     openHomePage();
                 }
                 else
                     Toast.makeText(getApplicationContext(), "The username and/or password you specified are incorrect", Toast.LENGTH_SHORT).show();
             }
         });
-
-        final Button forgotPassword = (Button) findViewById(R.id.forgot);
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                passwordReset();
-            }
-        });
-    }
-
-    public void openFirstActivity() {
-        Intent intent = new Intent(this, Welcome.class);
-        startActivity(intent);
     }
 
     public void openHomePage() {
@@ -81,7 +63,7 @@ public class Login_Page extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void passwordReset() {
+    public void passwordReset(View view) {
         Intent intent = new Intent(this, PasswordReset.class);
         startActivity(intent);
     }

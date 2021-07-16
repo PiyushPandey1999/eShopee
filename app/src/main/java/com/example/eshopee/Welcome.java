@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -30,28 +29,14 @@ public class Welcome extends AppCompatActivity {
                 mp.setLooping(true);
             }
         });
-
-        final Button button = (Button) findViewById(R.id.signup);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openSignUp();
-            }
-        });
-
-        final Button button1 = (Button) findViewById(R.id.login);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLogin();
-            }
-        });
     }
-    public void openSignUp() {
+
+    public void openSignUp(View view) {
         Intent intent = new Intent(this, Sign_up.class);
         startActivity(intent);
     }
-    public void openLogin() {
+
+    public void openLogin(View view) {
         Intent intent = new Intent(this, Login_Page.class);
         startActivity(intent);
     }

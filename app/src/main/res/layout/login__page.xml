@@ -78,6 +78,7 @@
         android:layout_marginTop="51dp"
         android:background="@drawable/round_button"
         android:text="Forgot password?"
+        android:onClick="passwordReset"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

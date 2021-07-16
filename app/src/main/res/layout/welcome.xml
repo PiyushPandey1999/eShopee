@@ -28,6 +28,7 @@
         android:layout_marginBottom="57dp"
         android:background="@drawable/round_button"
         android:text="Login"
+        android:onClick="openLogin"
         app:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/signup"
         app:layout_constraintStart_toStartOf="parent" />
@@ -41,6 +42,7 @@
         android:layout_marginBottom="102dp"
         android:background="@drawable/round_button"
         android:text="Sign up"
+        android:onClick="openSignUp"
         app:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

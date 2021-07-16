@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(Context context) {
@@ -39,8 +41,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getData(String phoneNumberHolder) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM UserDetails WHERE phone_number = "+phoneNumberHolder+"", null);
-        return res;
+        Cursor result = db.rawQuery("SELECT * FROM UserDetails WHERE phone_number = "+phoneNumberHolder+"", null);
+        return result;
     }
 
     public Boolean checkLoginDetails(String userNameHolder, String passwordHolder) {
@@ -71,5 +73,27 @@ public class DBHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+
+    public String[] getUserDetails(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM userDetails WHERE username = ? AND password = ?", new String[] {username, password}, null);
+        if(result.getCount() > 0) {
+            result.moveToFirst();
+            ArrayList<String> details = new ArrayList<String>();
+
+            while(!result.isAfterLast()) {
+                details.add(result.getString(result.getColumnIndex("fullName")));
+                details.add(result.getString(result.getColumnIndex("userName")));
+                details.add(result.getString(result.getColumnIndex("password")));
+                details.add(result.getString(result.getColumnIndex("phone_number")));
+                details.add(result.getString(result.getColumnIndex("address")));
+                result.moveToNext();
+            }
+            result.close();
+            return details.toArray(new String[details.size()]);
+        }
+        else
+            return (new String[2]);
     }
 }
