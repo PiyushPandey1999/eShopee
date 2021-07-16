@@ -78,22 +78,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public String[] getUserDetails(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("SELECT * FROM userDetails WHERE username = ? AND password = ?", new String[] {username, password}, null);
-        if(result.getCount() > 0) {
-            result.moveToFirst();
-            ArrayList<String> details = new ArrayList<String>();
+        result.moveToFirst();
+        ArrayList<String> details = new ArrayList<String>();
 
-            while(!result.isAfterLast()) {
-                details.add(result.getString(result.getColumnIndex("fullName")));
-                details.add(result.getString(result.getColumnIndex("userName")));
-                details.add(result.getString(result.getColumnIndex("password")));
-                details.add(result.getString(result.getColumnIndex("phone_number")));
-                details.add(result.getString(result.getColumnIndex("address")));
-                result.moveToNext();
-            }
-            result.close();
-            return details.toArray(new String[details.size()]);
+        while(!result.isAfterLast()) {
+            details.add(result.getString(result.getColumnIndex("fullName")));
+            details.add(result.getString(result.getColumnIndex("userName")));
+            details.add(result.getString(result.getColumnIndex("password")));
+            details.add(result.getString(result.getColumnIndex("phone_number")));
+            details.add(result.getString(result.getColumnIndex("address")));
+            result.moveToNext();
         }
-        else
-            return (new String[2]);
+        result.close();
+        return details.toArray(new String[details.size()]);
     }
 }

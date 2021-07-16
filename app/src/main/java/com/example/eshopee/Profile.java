@@ -18,7 +18,6 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.profile);
 
         myDB = new DBHelper(this);
-        //get all details of the corresponding account
         String[] details = User.getInstance().getDetails();
         userHolder = details[0];
         passwordHolder = details[1];
@@ -31,12 +30,44 @@ public class Profile extends AppCompatActivity {
         tvphone = (TextView) findViewById(R.id.TextViewTextPersonName7);
         tvaddress = (TextView) findViewById(R.id.TextViewTextPersonName8);
 
-        tvname.setText(userDetails[0]);
-        tvusername.setText(userDetails[1]);
-        tvpassword.setText(userDetails[2]);
-        tvphone.setText(userDetails[3]);
-        tvaddress.setText(userDetails[4]);
+        if(userDetails.length > 0) {
+            tvname.setText(userDetails[0]);
+            tvusername.setText(userDetails[1]);
+            tvpassword.setText(userDetails[2]);
+            tvphone.setText(userDetails[3]);
+            tvaddress.setText(userDetails[4]);
+        }
+        else {
 
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        myDB = new DBHelper(this);
+        String[] details = User.getInstance().getDetails();
+        userHolder = details[0];
+        passwordHolder = details[1];
+        String[] userDetails = myDB.getUserDetails(userHolder, passwordHolder);
+
+        //set textViews
+        tvname = (TextView) findViewById(R.id.TextViewTextPersonName);
+        tvusername = (TextView) findViewById(R.id.TextViewTextPersonName5);
+        tvpassword = (TextView) findViewById(R.id.TextViewTextPersonName6);
+        tvphone = (TextView) findViewById(R.id.TextViewTextPersonName7);
+        tvaddress = (TextView) findViewById(R.id.TextViewTextPersonName8);
+
+        if(userDetails.length > 0) {
+            tvname.setText(userDetails[0]);
+            tvusername.setText(userDetails[1]);
+            tvpassword.setText(userDetails[2]);
+            tvphone.setText(userDetails[3]);
+            tvaddress.setText(userDetails[4]);
+        }
+        else {
+
+        }
+        super.onResume();
     }
 
     public void openFirstActivity(View view) {
@@ -45,7 +76,7 @@ public class Profile extends AppCompatActivity {
     }
 
     public void openChangePassword(View view) {
-        Intent intent = new Intent(this, ResetActivity.class);
+        Intent intent = new Intent(this, ChangePassword.class);
         startActivity(intent);
     }
 }

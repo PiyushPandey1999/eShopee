@@ -67,7 +67,7 @@ public class ResetActivity extends AppCompatActivity {
                      }
                  }
                  else {
-                     Toast.makeText(ResetActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(ResetActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                  }
              }
          });

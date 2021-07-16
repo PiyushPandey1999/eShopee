@@ -185,8 +185,8 @@
         android:background="@drawable/round_button"
         app:backgroundTint="@color/black"
         android:text="CHANGE PASSWORD"
-        android:textStyle="bold"
         android:onClick="openChangePassword"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTextPersonName8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
