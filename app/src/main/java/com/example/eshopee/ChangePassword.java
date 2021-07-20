@@ -51,7 +51,7 @@ public class ChangePassword extends AppCompatActivity {
 
                     if(checkPasswordupdate == true) {
                         Toast.makeText(ChangePassword.this, "Password updated successfully", Toast.LENGTH_SHORT).show();
-                        openHomePage();
+                        openProfile();
                     }
                     else {
                         Toast.makeText(ChangePassword.this, "Password not updated", Toast.LENGTH_SHORT).show();
@@ -66,6 +66,11 @@ public class ChangePassword extends AppCompatActivity {
 
     public void openHomePage() {
         Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+    }
+
+    public void openProfile() {
+        Intent intent = new Intent(this, Profile.class);
         startActivity(intent);
     }
 }

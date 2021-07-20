@@ -108,7 +108,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:text="hi there"
+        android:text="blank"
         android:inputType="textPersonName"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -121,6 +121,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:text="blank"
         android:inputType="textPersonName"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -134,6 +135,7 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="blank"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTextPersonName5" />
@@ -147,6 +149,7 @@
         android:ems="10"
         android:inputType="number|phone"
         android:textSize="20sp"
+        android:text="blank"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTextPersonName6" />
 
@@ -158,6 +161,7 @@
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="blank"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTextPersonName7" />
@@ -185,7 +189,6 @@
         android:background="@drawable/round_button"
         app:backgroundTint="@color/black"
         android:text="CHANGE PASSWORD"
-        android:onClick="openChangePassword"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/TextViewTextPersonName8" />
