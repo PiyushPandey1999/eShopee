@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomePage extends AppCompatActivity {
     ImageButton postAd, profile;
@@ -20,23 +21,16 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
+
         ListView lv = findViewById(R.id.Lview);
-        ArrayList<String> pro = new ArrayList<>();
-        pro.add("Pen");
-        pro.add("Book");
-        pro.add("Umbrella");
-        pro.add("Kettle");
-        pro.add("Workshop uniform");
-        pro.add("Book");
-        pro.add("Eng Graphics materials");
-        pro.add("Pen");
-        pro.add("Book");
-        pro.add("Umbrella");
-        pro.add("Kettle");
-        pro.add("Workshop uniform");
-        pro.add("Book");
-        pro.add("Eng Graphics materials");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pro);
+        ArrayList<String> display = new ArrayList<>();
+        AdDBHelper db = new AdDBHelper(this);
+        List<String> result = db.getAllAds();
+        for(String s: result) {
+            display.add(s);
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, display);
         lv.setAdapter(arrayAdapter);
 
         postAd = (ImageButton) findViewById(R.id.imageButton2);

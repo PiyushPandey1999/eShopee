@@ -44,7 +44,8 @@ public class PostAd extends AppCompatActivity {
         }
 
         if (cinsert) {
-            Toast.makeText(getApplicationContext(), "Entered in Database Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Ad posted successfully", Toast.LENGTH_SHORT).show();
+            openHomePage();
         }
     }
 
@@ -63,5 +64,10 @@ public class PostAd extends AppCompatActivity {
 
         Uri uri = data.getData();
         c.setImageURI(uri);
+    }
+
+    public void openHomePage() {
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
     }
 }
