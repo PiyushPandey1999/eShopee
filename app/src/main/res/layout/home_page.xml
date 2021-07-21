@@ -23,43 +23,34 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="107dp"
-        android:layout_height="118dp"
+        android:layout_height="121dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/Widget.AppCompat.TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Search Item:"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
+        android:layout_width="324dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="150dp"
         android:ems="10"
+        android:hint="Search for an item"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="55dp"
         android:layout_height="50dp"
+        android:layout_marginTop="140dp"
         android:background="@color/cardview_shadow_end_color"
+        android:onClick="search"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search" />
 
     <ImageButton
@@ -123,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/signOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"

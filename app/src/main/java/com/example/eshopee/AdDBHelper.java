@@ -19,7 +19,7 @@ public class AdDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table Details(Title TEXT primary key, Description TEXT , Price TEXT)" );
+        db.execSQL("create Table Details(Title TEXT, Description TEXT primary key, Price TEXT)" );
     }
 
     @Override
@@ -43,11 +43,34 @@ public class AdDBHelper extends SQLiteOpenHelper {
     public List<String> getAllAds()
     {
         List<String> contactList = new ArrayList<>();
-        String result = "";
+        String result = "";1
         SQLiteDatabase db = this.getReadableDatabase();
         String select = "SELECT * FROM Details";
         Cursor cursor = db.rawQuery(select,null);
         if(cursor.moveToFirst()){
+            result = "\n";
+            contactList.add(result);
+            do {
+                String title = cursor.getString(0);
+                String description = cursor.getString(1);
+                String price = cursor.getString(2);
+                result = "Title: " + title + "\nDescription: " + description + "\nPrice: " + price;
+                contactList.add(result);
+            }while(cursor.moveToNext());
+        }
+        return contactList;
+    }
+
+    public List<String> getSearchResults(String titleKey)
+    {
+        List<String> contactList = new ArrayList<>();
+        String result = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+        //String select = "SELECT * FROM Details WHERE Title = ?", new String[] {titleKey};
+        Cursor cursor = db.rawQuery("SELECT * FROM Details WHERE Title = ?", new String[] {titleKey}, null);
+        if(cursor.moveToFirst() && cursor.getCount() > 0){
+            result = "\n";
+            contactList.add(result);
             do {
                 String title = cursor.getString(0);
                 String description = cursor.getString(1);

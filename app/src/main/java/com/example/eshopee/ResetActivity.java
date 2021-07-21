@@ -24,7 +24,7 @@ public class ResetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reset);
+        setContentView(R.layout.reset);
 
         //video background
         VideoView loginVideo = (VideoView) findViewById(R.id.videoView);

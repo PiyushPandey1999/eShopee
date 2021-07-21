@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import java.util.List;
 
 public class HomePage extends AppCompatActivity {
     ImageButton postAd, profile;
+    ListView lv;
     private long pressedTime;
 
     @Override
@@ -22,7 +24,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
 
-        ListView lv = findViewById(R.id.Lview);
+        lv = findViewById(R.id.Lview);
         ArrayList<String> display = new ArrayList<>();
         AdDBHelper db = new AdDBHelper(this);
         List<String> result = db.getAllAds();
@@ -77,5 +79,20 @@ public class HomePage extends AppCompatActivity {
     public void openFirstActivity(View view) {
         Intent intent = new Intent(this, Welcome.class);
         startActivity(intent);
+    }
+
+    public void search(View view) {
+        EditText edSearch = (EditText) findViewById(R.id.editTextTextPersonName);
+        lv = findViewById(R.id.Lview);
+        String title = edSearch.getText().toString();
+        ArrayList<String> display = new ArrayList<>();
+        AdDBHelper db = new AdDBHelper(this);
+        List<String> searchResult = db.getSearchResults(title);
+        for(String s: searchResult) {
+            display.add(s);
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, display);
+        lv.setAdapter(arrayAdapter);
     }
 }
